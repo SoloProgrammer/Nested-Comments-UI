@@ -1,0 +1,100 @@
+.container {
+    width: 100%;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.commentBox {
+    border: 1px solid rgba(255, 255, 255, 0.545);
+    text-align: left;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: .2rem;
+}
+
+.children {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    height: 100%;
+}
+
+.collapse-line {
+    width: 25px !important;
+    background: transparent;
+    border: none;
+    border-left: 2px solid rgba(255, 255, 255, 0.145);
+    padding: 0;
+    cursor: pointer;
+}
+
+.collapse-line:hover {
+    border-color: white;
+}
+
+.showReplyBtn {
+    min-width: 100px;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    border: none;
+    padding: 5px 10px;
+    border-radius: .2rem;
+    color: black;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+}
+
+.top {
+    font-size: .8rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.top .user {
+    font-size: 1rem;
+    color: rgb(61, 194, 255);
+}
+
+.divider {
+    margin-block: 10px;
+    height: 1px;
+    background: rgba(192, 192, 192, 0.278);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.fz-medium {
+    font-size: 1.2rem;
+}
+
+.likes .count {
+    font-size: .8rem;
+    font-weight: 500;
+}
+
+.icon:nth-child(2) {
+    font-size: 1.2rem;
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "uisygdf87",
+    "user": "John Doe",
+    "desc": "Something bogus written here",
+    "createdAt": 1708542082509,
+    "likes": [],
+    "comments": [
+      {
+        "id": "ousdfhgs",
+        "user": "Rekha sawant",
+        "desc": "Something bogus written here again by rekha sawant!",
+        "createdAt": 1708542082509,
+        "likes": ["user1", "user4"],
+        "comments": [
+          {
+            "id": "ousdfhgsdcfiuagdf78",
+            "user": "Pratham shinde",
+            "desc": "Nested comment",
+            "createdAt": 1708542902509,
+            "likes": ["user1", "user4", "user7", "user5"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "osuidyf8ostfd",
+    "user": "Pratham shinde",
+    "desc": "A best best ever written",
+    "createdAt": 1708542082509,
+    "likes": ["user1"]
+  }
+]

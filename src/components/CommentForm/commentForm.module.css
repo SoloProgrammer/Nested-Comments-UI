@@ -1,0 +1,70 @@
+.commentForm {
+    padding-left: 20px;
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    border-left: 1px solid rgba(255, 255, 255, 0.245);
+    margin-top: 10px;
+}
+
+.commentForm .submit {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cancelBtn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+.cancelBtn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.submit button {
+    border: none;
+    background: whitesmoke;
+    color: black;
+    border-radius: .2rem;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.submit button:disabled {
+    background: rgba(255, 255, 255, 0.095) !important;
+    color: white;
+    cursor: not-allowed;
+}
+
+.submit button:hover {
+    background: rgba(245, 245, 245, 0.86);
+}
+
+.textarea {
+    width: 100%;
+    outline: none;
+    resize: none;
+    padding: 10px;
+    font-family: inherit;
+    border: none;
+    box-shadow: 0 0 0 1px rgba(245, 245, 245, 0.398);
+    background: rgba(255, 255, 255, 0.085);
+    border-radius: .2rem;
+    transition: .2s box-shadow;
+}
+
+
+.textarea:focus {
+    box-shadow: 0 0 0 2px rgba(245, 245, 245, 0.798);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.textarea:active {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.textarea::placeholder {
+    color: silver;
+}
