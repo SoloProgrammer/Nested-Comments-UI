@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { CommentType } from "../types";
 import initialComments from "../data/data.json";
-import { USER_ID } from "../App";
+import { USER_ID } from "../context/CommentsContext";
 
 export const useComments = () => {
   const [comments, setComments] = useState<CommentType[]>(initialComments);
@@ -38,7 +38,6 @@ export const useComments = () => {
   };
 
   console.log(comments);
-  
 
   return {
     getReplies,

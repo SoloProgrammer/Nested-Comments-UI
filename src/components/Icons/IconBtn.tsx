@@ -6,7 +6,7 @@ type IconBtnPropsType = {
   children?: React.ReactNode;
   Icon: IconType;
   color?: "danger" | "primary";
-  handleClick?: () => void;
+  onClick?: () => void;
   className?: string;
 };
 
@@ -14,12 +14,12 @@ const IconBtn = ({
   children,
   className,
   Icon,
-  handleClick,
+  onClick,
   color,
   ...props
 }: IconBtnPropsType) => {
   return (
-    <button {...props} onClick={handleClick} className={styles.iconBtn}>
+    <button {...props} onClick={onClick} className={styles.iconBtn}>
       <span
         className={`${styles.icon} ${className} ${color ? styles[color] : ""}`}
       >

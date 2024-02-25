@@ -7,7 +7,8 @@ import {
 } from "react";
 import { CommentType } from "../types";
 import initialComments from "../data/data.json";
-import { USER_ID } from "../App";
+
+export const USER_ID = "user76142";
 
 type CommentsContextPropsType = {
   rootComments: CommentType[];
@@ -40,16 +41,16 @@ export const CommentsProvider = ({
   const groupByComments = useMemo(() => getComments(comments), [comments]);
 
   function handleLike(id: string) {
-    const copy = structuredClone(comments);
-
-    copy.map((c: CommentType) => {
-      if (c.id === id) {
-        if (c.likes.includes(USER_ID)) {
-          c.likes = c.likes.filter((uId) => uId !== USER_ID);
-        } else c.likes.push(USER_ID);
-      }
-    });
-    setComments(copy);
+    setComments((prev) =>
+      prev.map((c: CommentType) => {
+        if (c.id === id) {
+          if (c.likes.includes(USER_ID)) {
+            c.likes = c.likes.filter((uId) => uId !== USER_ID);
+          } else c.likes.push(USER_ID);
+        }
+        return c;
+      })
+    );
   }
 
   const getReplies = useCallback(

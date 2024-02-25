@@ -7,7 +7,7 @@ import IconBtn from "../Icons/IconBtn";
 import { MdDelete } from "react-icons/md";
 import CommentForm from "../CommentForm/CommentForm";
 import { CommentPropTypes, CommentsPropTypes } from "../../types";
-import { USER_ID } from "../../App";
+import { USER_ID } from "../../context/CommentsContext";
 import { useComments } from "../../context/CommentsContext";
 
 const dateForamtter = new Intl.DateTimeFormat(undefined, {
@@ -15,33 +15,29 @@ const dateForamtter = new Intl.DateTimeFormat(undefined, {
   timeStyle: "short",
 });
 
-const Comments = ({ comments, handleLike }: CommentsPropTypes) => {
+const Comments = ({ comments }: CommentsPropTypes) => {
   return (
     <div className={styles.container}>
       <div className={styles.comments}>
         {comments?.map((comment) => (
-          <Comment handleLike={handleLike} key={comment.id} comment={comment} />
+          <Comment key={comment.id} comment={comment} />
         ))}
       </div>
     </div>
   );
 };
 
-const Comment = ({ comment, handleLike }: CommentPropTypes) => {
-  const [open, setOpen] = useState(false);
-
+const Comment = ({ comment }: CommentPropTypes) => {
+  const [showChildren, setShowChildren] = useState(false);
   const [showTextArea, setShowTextArea] = useState<boolean>(false);
-
   const [isEdit, setIsEdit] = useState(false);
 
   const parent = useRef(null);
-
   useEffect(() => {
     parent.current && autoAnimate(parent.current);
-  }, [parent]);
+  }, []);
 
-  const { getReplies, handleLike: handleCommentLike } = useComments();
-
+  const { getReplies, handleLike } = useComments();
   const replies = getReplies(comment.id);
 
   return (
@@ -70,7 +66,7 @@ const Comment = ({ comment, handleLike }: CommentPropTypes) => {
           <IconBtn
             aria-label="like-button"
             className={`${styles.likes}`}
-            handleClick={() => handleCommentLike(comment.id)}
+            onClick={() => handleLike(comment.id)}
             Icon={comment.likes.includes(USER_ID) ? FaHeart : FaRegHeart}
           >
             <span className={styles.count}>{comment.likes.length}</span>
@@ -78,11 +74,11 @@ const Comment = ({ comment, handleLike }: CommentPropTypes) => {
           <IconBtn
             aria-label="reply-button"
             className={styles["fz-medium"]}
-            handleClick={() => setShowTextArea(!showTextArea)}
+            onClick={() => setShowTextArea(!showTextArea)}
             Icon={showTextArea ? BsReplyFill : BsReply}
           />
           <IconBtn
-            handleClick={() => setIsEdit((prev) => !prev)}
+            onClick={() => setIsEdit((prev) => !prev)}
             aria-label="edit-button"
             Icon={isEdit ? FaEdit : FaRegEdit}
           />
@@ -105,15 +101,18 @@ const Comment = ({ comment, handleLike }: CommentPropTypes) => {
           key={new Date().getTime()}
         />
       )}
-      {replies && !open && (
-        <button className={styles.showReplyBtn} onClick={() => setOpen(true)}>
+      {replies && !showChildren && (
+        <button
+          className={styles.showReplyBtn}
+          onClick={() => setShowChildren(true)}
+        >
           view replies
         </button>
       )}
-      {open && replies && (
+      {showChildren && replies && (
         <div className={styles.children}>
           <button
-            onClick={() => setOpen(false)}
+            onClick={() => setShowChildren(false)}
             className={styles["collapse-line"]}
           />
           {replies?.map((c) => (

@@ -3,12 +3,8 @@ import "./App.css";
 import CommentForm from "./components/CommentForm/CommentForm";
 import { useComments } from "./context/CommentsContext";
 
-export const USER_ID = "user76142";
-
 const App = () => {
   const { rootComments, handleLike } = useComments();
-
-  console.log(rootComments);
 
   return (
     <div className="container">
@@ -17,7 +13,6 @@ const App = () => {
         <CommentForm
           actionBtnCopy="post"
           handleSubmit={(text: string) => console.log(text)}
-          autoFocus
           key={"Add a new comment"}
         />
         <br />

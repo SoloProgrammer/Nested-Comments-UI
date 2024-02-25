@@ -10,12 +10,12 @@ export type CommentType = {
 
 export type CommentsPropTypes = {
   comments: CommentType[];
-  handleLike: (id: string) => void;
+  handleLike?: (id: string) => void;
 };
 
 export type CommentPropTypes = {
   comment: CommentType;
-  handleLike: (id: string) => void;
+  handleLike?: (id: string) => void;
 };
 export type CommentFormPropsType = {
   loading?: boolean;
