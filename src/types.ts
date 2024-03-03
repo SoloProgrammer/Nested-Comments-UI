@@ -1,3 +1,5 @@
+import { FormHTMLAttributes } from "react";
+
 export type CommentType = {
   id: string;
   user: string;
@@ -17,12 +19,15 @@ export type CommentPropTypes = {
   comment: CommentType;
   handleLike?: (id: string) => void;
 };
+
+type FormProps = FormHTMLAttributes<HTMLFormElement>;
+
 export type CommentFormPropsType = {
   loading?: boolean;
   actionBtnCopy: string;
   value?: string;
   autoFocus?: boolean;
   placeholder?: string;
-  handleSubmit: (text: string) => void;
+  onSubmit: (text: string) => void;
   handleCancel?: () => void;
-};
+} & Omit<FormProps, "onSubmit" | "action" | "method">;

@@ -12,7 +12,7 @@ const App = () => {
         <h2>Comments</h2>
         <CommentForm
           actionBtnCopy="post"
-          handleSubmit={(text: string) => console.log(text)}
+          onSubmit={(text: string) => console.log(text)}
           key={"Add a new comment"}
         />
         <br />

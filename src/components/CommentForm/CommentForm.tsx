@@ -7,7 +7,7 @@ const CommentForm = ({
   loading = false,
   actionBtnCopy,
   autoFocus = false,
-  handleSubmit,
+  onSubmit,
   handleCancel,
   placeholder = "",
   value = "",
@@ -21,7 +21,7 @@ const CommentForm = ({
       className={styles.commentForm}
       onSubmit={(e: FormEvent) => {
         e.preventDefault();
-        handleSubmit(text);
+        onSubmit(text);
       }}
     >
       <CommentTextArea
